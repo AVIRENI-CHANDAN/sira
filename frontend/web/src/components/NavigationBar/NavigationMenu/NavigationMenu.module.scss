@@ -1,0 +1,37 @@
+div.NavigationMenuList {
+    flex: 1 1 auto;
+    height: 100%;
+    padding: 0 24px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    gap: 12px;
+    position: relative;
+
+    a.NavMenuItem {
+        flex: 0 1 100px;
+        text-decoration: none;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        text-wrap: nowrap;
+        position: relative;
+        padding: 0 1em;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+
+    a.ActiveMenuItem {
+        @extend .NavMenuItem;
+        background-color: var(--primary-color);
+        color: var(--light-text);
+
+        &:hover {
+            color: var(--light-text);
+        }
+    }
+}
