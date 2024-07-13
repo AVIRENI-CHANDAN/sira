@@ -1,24 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styles from './NavigationMenu.module.scss';
+import { useLocation } from 'react-router-dom';
+import AuthorisedNavigationMenu from './AuthorisedNavigationMenu/AuthorisedNavigationMenu';
+import UnAuthorisedNavigationMenu from './UnAuthorisedNavigationMenu/UnAuthorisedNavigationMenu';
 
-class NavigationMenu extends React.Component {
-  render() {
-    return (
-      <div className={styles.NavigationMenuList}>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/">Home</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/features">Features</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/pricing">Pricing</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/about">About Us</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/contact">Contact Us</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/auth">Login/Signup</NavLink>
-      </div>
-    );
+function NavigationMenu(props) {
+  const location = useLocation();
+  if (location.pathname.startsWith("/user")) {
+    return <AuthorisedNavigationMenu {...props} />;
   }
+  return <UnAuthorisedNavigationMenu {...props} />;
 }
 
-NavigationMenu.propTypes = {};
-
-NavigationMenu.defaultProps = {};
 
 export default NavigationMenu;
