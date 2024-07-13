@@ -1,0 +1,19 @@
+div.App {
+  text-align: center;
+  border: 1px solid red;
+  height: 100dvh;
+  display: flex;
+  flex-flow: column nowrap;
+
+  div.NavigationBar {
+    flex: 0 1 50px;
+    border: 1px solid blue;
+  }
+
+  div.PageContainer {
+    flex: 1 1 auto;
+    border: 1px solid green;
+    overflow: scroll;
+  }
+
+}
