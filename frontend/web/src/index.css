@@ -3,7 +3,17 @@
 }
 
 :root {
-  color-scheme: light;
+  --primary-color: #1A73E8;
+  --secondary-color: #185ABC;
+  --accent-color: #F9AB00;
+  --light-bg: #F4F5F7;
+  --dark-bg: #202124;
+  --light-text: #FFFFFF;
+  --dark-text: #3C4043;
+  --success-color: #34A853;
+  --warning-color: #FBBC04;
+  --error-color: #EA4335;
+  --info-color: #4285F4;
 }
 
 html,
@@ -21,4 +31,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.LightTheme {
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+}
+
+body.DarkTheme {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
 }
