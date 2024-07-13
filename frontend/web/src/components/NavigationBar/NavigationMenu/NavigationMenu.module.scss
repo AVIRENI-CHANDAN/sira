@@ -19,6 +19,7 @@ div.NavigationMenuList {
         position: relative;
         padding: 0 1em;
         cursor: pointer;
+        color: inherit;
 
         &:hover {
             color: var(--accent-color);
