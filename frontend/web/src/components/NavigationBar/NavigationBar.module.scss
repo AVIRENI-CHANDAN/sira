@@ -1,4 +1,35 @@
 header.NavigationBar {
     display: flex;
     flex-flow: row nowrap;
+    height: 64px;
+
+    div.LogoContainer {
+        flex: 0 1 150px;
+        height: 100%;
+        position: relative;
+
+        div.LogoWrapper {
+            height: 100%;
+            position: relative;
+
+            img {
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -o-user-select: none;
+                -webkit-user-select: none;
+                height: 100%;
+                user-select: none;
+            }
+        }
+    }
+
+    div.NavigationMenuContainer {
+        align-items: center;
+        display: flex;
+        flex: 10 10 auto;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        height: 100%;
+        position: relative;
+    }
 }
