@@ -1,1 +1,4 @@
-.NavigationBar {}
+header.NavigationBar {
+    display: flex;
+    flex-flow: row nowrap;
+}
