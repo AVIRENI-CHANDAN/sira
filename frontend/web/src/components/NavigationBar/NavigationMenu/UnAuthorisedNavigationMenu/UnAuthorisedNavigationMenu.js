@@ -4,15 +4,16 @@ import styles from '../NavigationMenu.module.scss';
 
 class UnAuthorisedNavigationMenu extends React.Component {
     render() {
+        const { hideMenu } = this.props;
         return (
-            <div className={styles.NavigationMenuList}>
-                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/">Home</NavLink>
-                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/features">Features</NavLink>
-                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/pricing">Pricing</NavLink>
-                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/about">About Us</NavLink>
-                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/contact">Contact Us</NavLink>
-                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/auth">Login/Signup</NavLink>
-            </div>
+            <>
+                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} onClick={hideMenu} to="/">Home</NavLink>
+                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} onClick={hideMenu} to="/features">Features</NavLink>
+                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} onClick={hideMenu} to="/pricing">Pricing</NavLink>
+                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} onClick={hideMenu} to="/about">About Us</NavLink>
+                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} onClick={hideMenu} to="/contact">Contact Us</NavLink>
+                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} onClick={hideMenu} to="/auth">Login/Signup</NavLink>
+            </>
         );
     }
 }
