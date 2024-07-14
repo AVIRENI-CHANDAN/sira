@@ -4,11 +4,10 @@ import styles from '../NavigationMenu.module.scss';
 
 class AuthorisedNavigationMenu extends React.Component {
     render() {
-        return (
-            <div className={styles.NavigationMenuList}>
-                <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/user/home">Home</NavLink>
-            </div>
-        );
+        const { hideMenu } = this.props;
+        return (<>
+            <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} onClick={hideMenu} to="/user/home">Home</NavLink>
+        </>);
     }
 }
 
