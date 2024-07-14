@@ -1,24 +1,47 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import AuthorisedNavigationMenu from './AuthorisedNavigationMenu/AuthorisedNavigationMenu';
+import CrossIcon from './CrossIcon/CrossIcon';
+import HamburgerIcon from './HamburgerIcon/HamburgerIcon';
 import styles from './NavigationMenu.module.scss';
+import UnAuthorisedNavigationMenu from './UnAuthorisedNavigationMenu/UnAuthorisedNavigationMenu';
 
-class NavigationMenu extends React.Component {
-  render() {
-    return (
-      <div className={styles.NavigationMenuList}>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/">Home</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/features">Features</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/pricing">Pricing</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/about">About Us</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/contact">Contact Us</NavLink>
-        <NavLink className={({ isActive }) => (isActive) ? styles.ActiveMenuItem : styles.NavMenuItem} to="/auth">Login/Signup</NavLink>
-      </div>
-    );
+function NavigationMenu(props) {
+  const location = useLocation();
+  const [show_menu, setShowMenu] = useState(false);
+
+  function hideMenu() {
+    setShowMenu(false);
   }
+
+  function showMenu() {
+    setShowMenu(true);
+  }
+
+  function toggleMenu() {
+    setShowMenu(!show_menu);
+  };
+
+  return (
+    <>
+      {show_menu ? '' : (
+        <div className={styles.ToggleMenu} onClick={toggleMenu}>
+          <HamburgerIcon />
+        </div>
+      )}
+      <div className={`${styles.NavigationMenuList} ${show_menu ? styles.ActiveNavigationMenuList : ''}`}>
+        <div className={styles.ToggleMenu} onClick={toggleMenu}>
+          <CrossIcon />
+        </div>
+        {(location.pathname.startsWith("/user")) ? (
+          <AuthorisedNavigationMenu hideMenu={hideMenu} />
+        ) : (
+          <UnAuthorisedNavigationMenu hideMenu={hideMenu} />
+        )}
+      </div>
+    </>
+  );
 }
 
-NavigationMenu.propTypes = {};
-
-NavigationMenu.defaultProps = {};
 
 export default NavigationMenu;

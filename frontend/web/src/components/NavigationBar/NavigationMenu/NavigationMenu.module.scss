@@ -1,11 +1,49 @@
+div.ToggleMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px;
+    cursor: pointer;
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 751px) {
+        display: none;
+    }
+}
+
 div.NavigationMenuList {
     flex: 1 1 auto;
     height: 100%;
     padding: 0 24px;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
     position: relative;
+
+    @media (max-width:750px) {
+        flex-flow: column nowrap;
+        position: relative;
+        justify-content: center;
+        border: 1px solid gray;
+        border-radius: 4px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: scroll;
+        margin: 1em;
+        height: calc(100vh - 2em);
+        width: calc(100vw - 2em);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 0 12px gray;
+        display: none;
+    }
+
+    @media (min-width: 751px) {
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+    }
 
     a.NavMenuItem {
         flex: 0 1 100px;
@@ -20,6 +58,14 @@ div.NavigationMenuList {
         cursor: pointer;
         color: inherit;
 
+        @media (max-width:750px) {
+            flex: 0 1 auto;
+            padding: 1em 2em;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
         &:hover {
             color: var(--accent-color);
         }
@@ -33,5 +79,11 @@ div.NavigationMenuList {
         &:hover {
             color: var(--light-text);
         }
+    }
+}
+
+div.ActiveNavigationMenuList {
+    @media (max-width:750px) {
+        display: flex;
     }
 }
