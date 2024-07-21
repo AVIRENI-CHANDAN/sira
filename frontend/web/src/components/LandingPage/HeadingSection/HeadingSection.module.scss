@@ -10,6 +10,8 @@ section.HeadingSection {
         padding: 72px 0;
         position: relative;
         background-blend-mode: color-burn;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: white;
 
         div.DarkOverlay {
