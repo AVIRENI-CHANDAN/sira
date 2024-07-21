@@ -1,0 +1,36 @@
+section.BenefitsSection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+
+    div.BenefitsWrapper {
+        flex: 0 1 800px;
+
+        div.BenefitsList {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 12px;
+
+            div.Benefit {
+                flex: 0 1 100px;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-evenly;
+
+                div.BenefitSegmentQuestion {
+                    font-weight: bold;
+                }
+
+                div.BenefitSegment {
+                    font-style: italic;
+
+                    &::before {
+                        content: "-\0020";
+                    }
+                }
+            }
+        }
+    }
+}
