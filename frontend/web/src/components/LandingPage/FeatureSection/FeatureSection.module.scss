@@ -1,0 +1,52 @@
+section.FeatureSection {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 48px;
+
+    div.FeaturesWrapper {
+        flex: 0 1 1270px;
+        display: block;
+
+        div.FeatureList {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            gap: 24px;
+
+            div.FeatureWrapper {
+                flex: 0 1 300px;
+                padding: 24px;
+                display: flex;
+                flex-flow: column nowrap;
+                border-radius: 8px;
+                box-shadow: 0 0 8px -4px gray;
+
+                div.Feature {
+                    flex: 0 1 100px;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: space-between;
+
+                    div.FeatureTitle {
+                        font-weight: bold;
+                        text-align: center;
+                        flex: 0 1 auto;
+                        font-size: 1.25em;
+                    }
+
+                    div.FeatureDescription {
+                        font-style: italic;
+                        color: var(--dark-text);
+
+                        &::before {
+                            content: "-\0020";
+                            white-space: pre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
