@@ -1,0 +1,52 @@
+$overlay-color: rgba(0, 0, 0, 0.5);
+
+section.HeadingSection {
+    overflow: hidden;
+    position: relative;
+
+    div.Heading {
+        font-size: 5vw;
+        background-position: center center;
+        padding: 72px 0;
+        position: relative;
+        background-blend-mode: color-burn;
+        color: white;
+
+        div.DarkOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: $overlay-color;
+            z-index: 1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+            font-style: italic;
+        }
+    }
+}
+
+section.CaptionSection {
+    position: relative;
+
+    div.Caption {
+        padding: 48px 24px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-style: italic;
+    }
+}
