@@ -3,6 +3,7 @@ $overlay-color: rgba(0, 0, 0, 0.5);
 section.HeadingSection {
     overflow: hidden;
     position: relative;
+    text-align: center;
 
     div.Heading {
         font-size: 5vw;
@@ -41,14 +42,10 @@ section.HeadingSection {
 
 section.CaptionSection {
     position: relative;
+    text-align: center;
 
     div.Caption {
         padding: 48px 24px;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         font-style: italic;
     }
 }
