@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styles from './App.module.scss';
-import NavigationBar from './components/NavigationBar/NavigationBar';
-import LandingPage from './components/LandingPage/LandingPage';
 import ApplicationFooter from './components/ApplicationFooter/ApplicationFooter';
+import LandingPage from './components/LandingPage/LandingPage';
+import NavigationBar from './components/NavigationBar/NavigationBar';
 
 class App extends React.Component {
   render() {
