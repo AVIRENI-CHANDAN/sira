@@ -1,0 +1,67 @@
+footer.ApplicationFooter {
+    position: relative;
+    height: 48px;
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 12px;
+
+    div.FooterWrapper {
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: row nowrap;
+
+        div.FooterDivisionWrapper {
+            flex: 1 1 auto;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        div.CopyrightWrapper {
+            @extend .FooterDivisionWrapper;
+            gap: 4px;
+            justify-content: start;
+
+            div.CopyrightSymbol {
+                font-weight: bold
+            }
+
+            div.CompanyName {
+
+                &::after {
+                    padding: 0;
+                    margin: 0;
+                    content: '.';
+                }
+
+                &:hover {
+                    cursor: pointer
+                }
+            }
+
+            div.RightReservedLine {
+                &::after {
+                    padding: 0;
+                    margin: 0;
+                    content: '.';
+                }
+            }
+        }
+
+        div.LinksWrapper {
+            @extend .FooterDivisionWrapper;
+            justify-content: end;
+            gap: 24px;
+
+            a.Link {
+                text-decoration: none;
+                color: inherit;
+
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
