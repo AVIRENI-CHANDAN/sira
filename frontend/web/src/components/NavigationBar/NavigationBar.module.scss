@@ -2,6 +2,7 @@ header.NavigationBar {
     display: flex;
     flex-flow: row nowrap;
     height: 64px;
+    border-bottom: 1px solid gray;
 
     div.LogoContainer {
         flex: 0 1 150px;
