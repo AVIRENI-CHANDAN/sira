@@ -41,7 +41,9 @@ def register_routes(app):
             return "Internal Server Error", HTTPStatus.INTERNAL_SERVER_ERROR
 
 
+# Create an app instance
+app = create_app()
+
 # Entry point
 if __name__ == "__main__":
-    app = create_app()
     app.run(debug=DEBUG, host=HOST, port=PORT)
