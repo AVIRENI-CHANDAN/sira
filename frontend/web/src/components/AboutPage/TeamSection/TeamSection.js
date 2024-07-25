@@ -5,21 +5,22 @@ class TeamSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      teamMembers: [
-        {
-          id: 1,
-          name: 'Avireni Chandan',
-          role: 'Software Engineer',
-          image: 'chandan.jpeg'
-        },
-        {
-          id: 2,
-          name: 'Jane Smith',
-          role: 'Project Manager',
-          image: 'chandan.jpeg'
-        }
-      ]
+      teamMembers: []
     }
+  }
+  componentDidMount() {
+    fetch('/api/team/all')
+      .then(response => response.json())
+      .then(response => response['team'])
+      .then(data => {
+        let team_members_data = [];
+        Array.from(data).map((element, index) => {
+          team_members_data.push({ id: index, ...element });
+        });
+        return team_members_data;
+      })
+      .then(data => this.setState({ teamMembers: data }))
+      .catch(error => { console.error("There was an error fetching the team members!", error); });
   }
   render() {
     return (
