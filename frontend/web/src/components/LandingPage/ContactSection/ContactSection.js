@@ -48,7 +48,7 @@ class ContactSection extends React.Component {
                   placeholder="Name"
                   value={this.state.contactForm.name}
                   onChange={this.handleInputChange}
-                  autoComplete='fullname'
+                  autoComplete='name'
                 />
                 <input
                   type="email"
