@@ -1,0 +1,85 @@
+section.ContactFormSection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 48px;
+
+    div.ContactFormWrapper {
+        flex: 0 1 1270px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+
+        div.ContactFormBox {
+            flex: 0 1 400px;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 24px;
+
+            div.ContactFormTitle {
+                text-align: center;
+                font-weight: bolder;
+                font-style: italic;
+            }
+
+            form.ContactForm {
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 12px;
+
+                div.FormGroup {
+                    position: relative;
+
+                    input,
+                    textarea {
+                        padding: 8px;
+                        width: 100%;
+                        border: 1px solid gray;
+                        outline: none;
+
+                        &::placeholder {
+                            height: inherit;
+                            text-align: center;
+                            color: inherit;
+                        }
+
+                        &:focus {
+                            &::placeholder {
+                                color: gray;
+                            }
+                        }
+                    }
+
+                    input {
+                        border-radius: 2em;
+                    }
+
+                    textarea {
+                        border-radius: 1em;
+                    }
+
+                }
+
+                button.SubmitBtn {
+                    padding: 8px;
+                    background-color: var(--secondary-color);
+                    color: var(--light-text);
+                    border-radius: 2em;
+                    outline: none;
+                    border: none;
+                    font-weight: bold;
+                    transition: 300ms ease-in-out;
+
+                    &:hover {
+                        cursor: pointer;
+                        outline: none;
+                        background-color: var(--primary-color);
+                        box-shadow: 0 0 8px var(--secondary-color);
+                    }
+                }
+            }
+        }
+    }
+}

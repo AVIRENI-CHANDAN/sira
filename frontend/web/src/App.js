@@ -6,6 +6,7 @@ import FeaturePage from './components/FeaturePage/FeaturePage';
 import LandingPage from './components/LandingPage/LandingPage';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import ContactUsPage from './components/ContactUsPage/ContactUsPage';
 
 class App extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class App extends React.Component {
             <Routes>
               <Route path='/' element={<LandingPage />} />
               <Route path='/features' element={<FeaturePage />} />
+              <Route path='/contact' element={<ContactUsPage />} />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
             <ApplicationFooter />

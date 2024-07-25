@@ -1,0 +1,71 @@
+$contact-detail-icon-height: 24px;
+
+section.ContactInfoSection {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 24px 48px;
+
+    div.ContactInfoWrapper {
+        flex: 0 1 1270px;
+
+        div.ContactInfo {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 8px;
+
+            div.ContactInfoTitle {
+                flex: 0 1 auto;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            div.ContactInfoDescription {
+                position: relative;
+            }
+
+            div.ContactList {
+                display: flex;
+                flex-flow: row wrap;
+                gap: 8px;
+
+                div.ListItem {
+                    flex: 1 1 300px;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    gap: 8px;
+
+                    div.ListItemTitle {
+                        flex: 0 1 auto;
+
+                        div.TitleIconWrapper {
+                            height: 100%;
+                            display: flex;
+                            flex-flow: row nowrap;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                height: $contact-detail-icon-height;
+                                -khtml-user-select: none;
+                                -moz-user-select: none;
+                                -o-user-select: none;
+                                -webkit-user-select: none;
+                                user-select: none;
+                            }
+                        }
+                    }
+
+                    div.ListItemValue {
+                        flex: 1 1 auto;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
