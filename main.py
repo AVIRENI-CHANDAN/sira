@@ -34,6 +34,10 @@ def register_routes(app):
         try:
             if path == "":
                 return render_template("index.html"), HTTPStatus.OK
+            elif path.startswith("images") and os.path.exists(
+                os.path.join(app.root_path, path)
+            ):
+                return send_from_directory(app.root_path, path), HTTPStatus.OK
             else:
                 return send_from_directory(app.static_folder, path), HTTPStatus.OK
         except Exception as e:
@@ -46,4 +50,7 @@ app = create_app()
 
 # Entry point
 if __name__ == "__main__":
+    from flask_cors import CORS
+
+    CORS(app)  # Enable CORS for cross-origin requests
     app.run(debug=DEBUG, host=HOST, port=PORT)
