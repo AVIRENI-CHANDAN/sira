@@ -44,6 +44,11 @@ def register_routes(app):
             app.logger.error(f"Error serving path {path}: {e}")
             return "Internal Server Error", HTTPStatus.INTERNAL_SERVER_ERROR
 
+    # API routes
+    from api_routes import app as api_routes_app
+
+    app.register_blueprint(api_routes_app)
+
 
 # Create an app instance
 app = create_app()
