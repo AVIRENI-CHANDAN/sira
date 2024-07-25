@@ -1,0 +1,81 @@
+section.TeamSection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 24px 48px;
+
+    div.TeamWrapper {
+        flex: 0 1 1270px;
+
+        div.TeamContainer {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 24px;
+
+            div.Title {
+                flex: 0 1 auto;
+                font-weight: bold;
+                text-align: center;
+
+                &::first-letter {
+                    font-size: 1.25em;
+                }
+            }
+
+            div.TeamList {
+                flex: 1 1 auto;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                gap: 24px;
+
+                div.TeamMember {
+                    flex: 0 1 400px;
+                    position: relative;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    border: 1px solid lightgray;
+
+                    div.ImageWrapper {
+                        max-height: 400px;
+                        overflow: hidden;
+
+                        img {
+                            position: relative;
+                            width: 100%;
+                            height: auto;
+                            filter: contrast(110%) brightness(90%);
+                        }
+                    }
+
+                    div.DetailsWrapper {
+                        display: flex;
+                        flex-flow: row wrap;
+                        gap: 12px;
+                        justify-content: space-between;
+                        padding: 6px 12px;
+
+                        div.DetailsItem {
+                            flex: 1 1 150px;
+                            font-size: 1em;
+                            font-weight: bold;
+                            border-radius: 2em;
+                            padding: 8px 16px;
+                        }
+
+                        div.Name {
+                            @extend .DetailsItem;
+                        }
+
+                        div.Role {
+                            text-align: center;
+                            background-color: var(--info-color);
+                            color: var(--light-text);
+                            @extend .DetailsItem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
