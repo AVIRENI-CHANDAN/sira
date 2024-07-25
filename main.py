@@ -17,6 +17,13 @@ def create_app():
 
 
 def register_routes(app):
+    """
+    Function to register routes for the Flask application.
+
+    Args:
+        app (Flask): The Flask application instance.
+    """
+
     @app.get("/", defaults={"path": ""})
     @app.get("/<path:path>")
     def index(path):
@@ -47,6 +54,7 @@ def register_routes(app):
     # API routes
     from api_routes import app as api_routes_app
 
+    # Register the API routes blueprint
     app.register_blueprint(api_routes_app)
 
 
@@ -57,5 +65,6 @@ app = create_app()
 if __name__ == "__main__":
     from flask_cors import CORS
 
-    CORS(app)  # Enable CORS for cross-origin requests
+    # Enable CORS for cross-origin requests
+    CORS(app)
     app.run(debug=DEBUG, host=HOST, port=PORT)
