@@ -10,18 +10,21 @@ from settings import DEBUG, HOST, PORT, STATIC_FOLDER, TEMPLATE_FOLDER
 def create_app():
     app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLDER)
 
+    from api_routes import app as api_routes_blueprint
+
     # Register routes
-    register_routes(app)
+    register_routes(app, api_routes_blueprint)
 
     return app
 
 
-def register_routes(app):
+def register_routes(app, *blueprints):
     """
     Function to register routes for the Flask application.
 
     Args:
         app (Flask): The Flask application instance.
+        blueprints (Blueprint): One or more Flask blueprint instances to register.
     """
 
     @app.get("/", defaults={"path": ""})
@@ -51,11 +54,9 @@ def register_routes(app):
             app.logger.error(f"Error serving path {path}: {e}")
             return "Internal Server Error", HTTPStatus.INTERNAL_SERVER_ERROR
 
-    # API routes
-    from api_routes import app as api_routes_app
-
-    # Register the API routes blueprint
-    app.register_blueprint(api_routes_app)
+    # Register all provided blueprints
+    for blueprint in blueprints:
+        app.register_blueprint(blueprint)
 
 
 # Create an app instance
