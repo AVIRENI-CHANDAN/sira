@@ -1,0 +1,90 @@
+section.PlansSection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 48px;
+
+    div.PlansWrapper {
+        flex: 0 1 1270px;
+
+        div.PlansList {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+
+            div.ListItem {
+                flex: 0 1 400px;
+                padding: 24px;
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 12px;
+
+                div.ItemTitle {
+                    text-align: center;
+                }
+
+                div.ItemWrapper {
+                    div.QuotationFormBox {
+                        form.QuotationForm {
+                            display: flex;
+                            flex-flow: column nowrap;
+                            gap: 6px;
+
+                            div.FormGroup {
+
+                                input,
+                                textarea,
+                                select {
+                                    width: 100%;
+                                    position: relative;
+                                    padding: 8px;
+                                    border-radius: 8px;
+                                    outline: none;
+                                    border: 1px solid gray;
+                                }
+
+                                input,
+                                textarea {
+                                    &::placeholder {
+                                        text-align: center;
+                                        color: var(--dark-text);
+                                    }
+
+                                    &:focus {
+                                        &::placeholder {
+                                            color: lightgray;
+                                        }
+                                    }
+                                }
+
+                                select {
+                                    option {
+                                        text-align: center;
+                                    }
+                                }
+                            }
+
+                            button.SubmitBtn {
+                                flex: 0 1 3em;
+                                padding: 8px;
+                                border-radius: 8px;
+                                border: none;
+                                outline: none;
+                                cursor: pointer;
+                                background-color: var(--primary-color);
+                                color: var(--light-text);
+                                transition: 300ms ease-in-out;
+
+                                &:hover {
+                                    box-shadow: 0 0 8px var(--secondary-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
