@@ -1,0 +1,18 @@
+div.SignPage {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 48px;
+
+    div.SignWrapper {
+        flex: 0 1 1270px;
+        border: 1px solid blue;
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
