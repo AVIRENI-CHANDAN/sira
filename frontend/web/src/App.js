@@ -8,6 +8,7 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import ContactUsPage from './components/ContactUsPage/ContactUsPage';
 import AboutPage from './components/AboutPage/AboutPage';
+import PricingPage from './components/PricingPage/PricingPage';
 
 class App extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class App extends React.Component {
               <Route path='/features' element={<FeaturePage />} />
               <Route path='/contact' element={<ContactUsPage />} />
               <Route path='/about' element={<AboutPage />} />
+              <Route path='/pricing' element={<PricingPage />} />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
             <ApplicationFooter />
