@@ -1,0 +1,96 @@
+section.RegistrationSection {
+    flex: 1 1 auto;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    div.FormWrapper {
+        flex: 1 1 400px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 12px;
+        padding: 24px;
+
+        form.Form {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 12px;
+            position: relative;
+
+            fieldset.FormGroup {
+                border: 1px solid lightgray;
+            }
+
+            div.FormGroup,
+            fieldset.FormGroup {
+                display: flex;
+                flex-flow: row wrap;
+                gap: 8px;
+
+                legend {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+
+                div.FormInput {
+                    flex: 1 1 200px;
+                    display: flex;
+                    flex-flow: row nowrap;
+
+                    input.FormFieldInput,
+                    select.FormFieldInput {
+                        flex: 0 1 300px;
+                        outline: none;
+                        border: 1px solid gray;
+                        padding: 6px 12px;
+                        border-radius: 8px;
+
+                        &::placeholder {
+                            text-align: center;
+                            text-transform: capitalize;
+                            color: var(--dark-text);
+                        }
+
+                        &:focus {
+                            &::placeholder {
+                                color: lightgray;
+                            }
+                        }
+                    }
+                }
+            }
+
+            button.FormBtn {
+                flex: 0 1 3em;
+                text-align: center;
+                background-color: var(--secondary-color);
+                border: none;
+                outline: none;
+                border-radius: 2em;
+                color: var(--light-text);
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--primary-color);
+                    box-shadow: 0 0 8px var(--secondary-color);
+                }
+            }
+        }
+
+        div.LoginRedirectLink {
+            flex: 0 1 auto;
+            font-size: 12px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-end;
+
+            div.RedirectLink {
+                cursor: pointer;
+                user-select: none;
+                text-decoration: underline;
+            }
+        }
+    }
+}

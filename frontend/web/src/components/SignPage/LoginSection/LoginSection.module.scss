@@ -1,0 +1,74 @@
+section.LoginSection {
+    flex: 1 1 auto;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    div.FormWrapper {
+        flex: 0 1 400px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 12px;
+        padding: 24px;
+
+        form.Form {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 8px;
+
+            div.FormGroup {
+
+                input.FormFieldInput {
+                    width: 100%;
+                    padding: 6px 1em;
+                    border-radius: 2em;
+                    border: 1px solid gray;
+                    outline: none;
+
+                    &::placeholder {
+                        color: var(--dark-text);
+                        text-align: center;
+                        text-transform: capitalize;
+                    }
+
+                    &:focus {
+                        &::placeholder {
+                            color: lightgray;
+                        }
+                    }
+                }
+            }
+
+            button.FormBtn {
+                flex: 0 1 3em;
+                text-align: center;
+                background-color: var(--secondary-color);
+                border: none;
+                outline: none;
+                border-radius: 2em;
+                color: var(--light-text);
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--primary-color);
+                    box-shadow: 0 0 8px var(--secondary-color);
+                }
+            }
+        }
+
+        div.RegistrationRedirectLink {
+            font-size: 12px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-end;
+
+            div.RedirectLink {
+                cursor: pointer;
+                user-select: none;
+                text-decoration: underline;
+            }
+        }
+    }
+}
