@@ -9,10 +9,11 @@ class ContactSection extends React.Component {
         name: '',
         email: ''
       }
-    }
+    };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleInputChange(event) {
     const { target } = event;
     const { name, value } = target;
@@ -23,6 +24,7 @@ class ContactSection extends React.Component {
       }
     });
   }
+
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state.contactForm);
@@ -34,6 +36,7 @@ class ContactSection extends React.Component {
       }
     });
   }
+
   render() {
     return (
       <section className={styles.ContactSection}>

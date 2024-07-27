@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './ApplicationFooter.module.scss';
 import { Link } from 'react-router-dom';
+import styles from './ApplicationFooter.module.scss';
 
 class ApplicationFooter extends React.Component {
   render() {

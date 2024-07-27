@@ -84,6 +84,7 @@ class FeaturesSection extends React.Component {
       ]
     }
   }
+
   render() {
     return (
       <section className={styles.FeaturesSection}>

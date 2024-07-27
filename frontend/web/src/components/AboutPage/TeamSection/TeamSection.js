@@ -8,6 +8,7 @@ class TeamSection extends React.Component {
       teamMembers: []
     }
   }
+
   componentDidMount() {
     fetch('/api/team/all')
       .then(response => response.json())
@@ -22,6 +23,7 @@ class TeamSection extends React.Component {
       .then(data => this.setState({ teamMembers: data }))
       .catch(error => { console.error("There was an error fetching the team members!", error); });
   }
+
   render() {
     return (
       <section className={styles.TeamSection}>

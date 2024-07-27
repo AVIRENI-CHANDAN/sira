@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './SignPage.module.scss';
 import LoginSection from './LoginSection/LoginSection';
 import RegistrationSection from './RegistrationSection/RegistrationSection';
+import styles from './SignPage.module.scss';
 
 class SignPage extends React.Component {
   constructor(props) {
@@ -12,12 +12,15 @@ class SignPage extends React.Component {
     this.setToLoginPage = this.setToLoginPage.bind(this);
     this.setToRegistrationPage = this.setToRegistrationPage.bind(this);
   }
+
   setToLoginPage() {
     this.setState({ isLoginPage: true });
   }
+
   setToRegistrationPage() {
     this.setState({ isLoginPage: false });
   }
+
   render() {
     return (
       <div className={styles.SignPage}>

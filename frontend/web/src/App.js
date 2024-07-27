@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styles from './App.module.scss';
+import AboutPage from './components/AboutPage/AboutPage';
 import ApplicationFooter from './components/ApplicationFooter/ApplicationFooter';
+import ContactUsPage from './components/ContactUsPage/ContactUsPage';
 import FeaturePage from './components/FeaturePage/FeaturePage';
 import LandingPage from './components/LandingPage/LandingPage';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
-import ContactUsPage from './components/ContactUsPage/ContactUsPage';
-import AboutPage from './components/AboutPage/AboutPage';
 import PricingPage from './components/PricingPage/PricingPage';
 import SignPage from './components/SignPage/SignPage';
 

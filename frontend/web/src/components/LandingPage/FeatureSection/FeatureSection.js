@@ -35,7 +35,6 @@ class FeatureSection extends React.Component {
       <section className={styles.FeatureSection}>
         <div className={styles.FeaturesWrapper}>
           <div className={styles.FeatureList}>
-
             {this.state.features.map((element) => (
               <div className={styles.FeatureWrapper} key={element.id}>
                 <div key={element.id} className={styles.Feature}>
@@ -48,7 +47,6 @@ class FeatureSection extends React.Component {
                 </div>
               </div>
             ))}
-
           </div>
         </div>
       </section>

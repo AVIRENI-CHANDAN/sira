@@ -26,6 +26,7 @@ class RegistrationSection extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
     this.setState({
       registrationForm: {
@@ -34,6 +35,7 @@ class RegistrationSection extends React.Component {
       }
     });
   }
+
   handleSubmit(event) {
     event.preventDefault();
     // Add your login logic here
@@ -57,6 +59,7 @@ class RegistrationSection extends React.Component {
       }
     });
   }
+
   render() {
     return (
       <section className={styles.RegistrationSection}>

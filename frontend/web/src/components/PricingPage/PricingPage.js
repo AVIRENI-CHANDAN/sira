@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './PricingPage.module.scss';
 import PlansSection from './PlansSection/PlansSection';
+import styles from './PricingPage.module.scss';
 
 class PricingPage extends React.Component {
   render() {

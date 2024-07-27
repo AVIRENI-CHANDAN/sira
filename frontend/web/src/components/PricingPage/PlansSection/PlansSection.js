@@ -18,6 +18,7 @@ class PlansSection extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
   handleChange(event) {
     const { name, value } = event.target;
     this.setState(prevState => ({
@@ -27,6 +28,7 @@ class PlansSection extends React.Component {
       }
     }));
   }
+
   onSubmit(event) {
     event.preventDefault();
     console.log("Form submitted", this.state.quotationForm);
@@ -44,6 +46,7 @@ class PlansSection extends React.Component {
     // Clear form fields after submission
     event.target.reset();
   }
+
   render() {
     return (
       <section className={styles.PlansSection}>

@@ -14,14 +14,14 @@ class BenefitsSection extends React.Component {
           ]
         }
       ]
-    }
+    };
   }
+
   render() {
     return (
       <section className={styles.BenefitsSection}>
         <div className={styles.BenefitsWrapper}>
           <div className={styles.BenefitsList}>
-
             {this.state.benifits.map((benefit) => (
               <div className={styles.Benefit} key={benefit.id}>
                 <div className={styles.BenefitSegmentQuestion}>{benefit.question}</div>
@@ -30,7 +30,6 @@ class BenefitsSection extends React.Component {
                 ))}
               </div>
             ))}
-
           </div>
         </div>
       </section>

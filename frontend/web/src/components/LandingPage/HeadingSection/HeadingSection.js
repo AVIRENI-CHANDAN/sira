@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './HeadingSection.module.scss';
 import heading_bg from '../../../images/heading-bg.jpeg';
+import styles from './HeadingSection.module.scss';
 
 class HeadingSection extends React.Component {
   render() {
@@ -14,7 +14,6 @@ class HeadingSection extends React.Component {
             <h1>with SIRA</h1>
           </div>
         </section>
-
         <section className={styles.CaptionSection}>
           <div className={styles.Caption}>
             <p>
