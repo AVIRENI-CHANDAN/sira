@@ -1,0 +1,83 @@
+div.PrivacyPolicyPage {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 12px 24px;
+
+
+    div.PolicyWrapper {
+        flex: 0 1 1270px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 4px;
+        font-size: 12px;
+        font-style: italic;
+
+        section.TermsSection {
+            position: relative;
+
+            div.GroupList {
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 4px;
+                padding: 6px 12px;
+
+                div.Group {
+                    display: block;
+
+                    &>div {
+                        display: inline;
+                    }
+
+                    div.Title {
+                        font-weight: bold;
+
+                        &::after {
+                            content: ':';
+                        }
+                    }
+
+                    div.Description {
+                        font-style: italic;
+                    }
+                }
+            }
+
+            div.ItemsList {
+                display: flex;
+                flex-flow: column nowrap;
+                padding: 6px 12px;
+                gap: 4px;
+
+                div.ListItem {
+                    &::before {
+                        content: '->';
+                        padding: 0 12px 0 0;
+                    }
+                }
+            }
+
+            div.InformationGroups {
+                @extend .GroupList;
+            }
+
+            div.InformationList,
+            div.SharingList,
+            div.RightsList {
+                @extend .ItemsList;
+            }
+        }
+
+        section.IntroSection,
+        section.InformationSection,
+        section.InformationSection,
+        section.InformationSharingSection,
+        section.DataSecuritySection,
+        section.UserRightsSection,
+        section.TrackingSection,
+        section.ThirdPartyLinkSection,
+        section.PrivacyPolicyChangeSection {
+            @extend .TermsSection;
+        }
+    }
+}
