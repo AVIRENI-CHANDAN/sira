@@ -1,5 +1,6 @@
 import os
 from http import HTTPStatus
+from functools import wraps
 
 from flask import Flask, render_template, request, send_from_directory
 
@@ -10,10 +11,11 @@ from settings import DEBUG, HOST, PORT, STATIC_FOLDER, TEMPLATE_FOLDER
 def create_app():
     app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLDER)
 
+    from admin import admin_app
     from api_routes import app as api_routes_blueprint
 
     # Register routes
-    register_routes(app, api_routes_blueprint)
+    register_routes(app, api_routes_blueprint, admin_app)
 
     return app
 
