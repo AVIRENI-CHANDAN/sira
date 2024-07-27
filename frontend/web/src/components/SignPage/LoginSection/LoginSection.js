@@ -14,12 +14,13 @@ class LoginSection extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    this.setState({
+    const { name, value } = event.target;
+    this.setState(prevState => ({
       loginForm: {
-        ...this.state.loginForm,
-        [event.target.name]: event.target.value
+        ...prevState.loginForm,
+        [name]: value
       }
-    });
+    }));
   }
   handleSubmit(event) {
     event.preventDefault();
