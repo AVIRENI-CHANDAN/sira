@@ -1,0 +1,52 @@
+div.TermsPage {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 12px 24px;
+
+
+    div.TermsWrapper {
+        flex: 0 1 1270px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 4px;
+        font-size: 12px;
+        font-style: italic;
+
+        section.TermsSection {
+            position: relative;
+
+            div.ItemsList {
+                display: flex;
+                flex-flow: column nowrap;
+                padding: 6px 12px;
+                gap: 4px;
+
+                div.ListItem {
+                    &::before {
+                        content: '->';
+                        padding: 0 12px 0 0;
+                    }
+                }
+            }
+
+            div.ConditionList {
+                @extend .ItemsList;
+            }
+        }
+
+        section.IntroSection,
+        section.TermsSection,
+        section.TermsChangeSection,
+        section.AccountsSection,
+        section.UserConductSection,
+        section.OwnershipSection,
+        section.IntellectualPropertySection,
+        section.LiabilityLimitationSection,
+        section.DisputeResolutionSection,
+        section.GoverningLawSection,
+        section.TerminationSection {
+            @extend .TermsSection;
+        }
+    }
+}

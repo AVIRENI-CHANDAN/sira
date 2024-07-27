@@ -10,6 +10,7 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import PricingPage from './components/PricingPage/PricingPage';
 import SignPage from './components/SignPage/SignPage';
+import TermsPage from './components/TermsPage/TermsPage';
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,7 @@ class App extends React.Component {
               <Route path='/about' element={<AboutPage />} />
               <Route path='/pricing' element={<PricingPage />} />
               <Route path='/auth' element={<SignPage />} />
+              <Route path='/terms' element={<TermsPage />} />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
             <ApplicationFooter />
