@@ -11,10 +11,11 @@ class ContactFormSection extends React.Component {
         subject: '',
         message: ''
       }
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({
@@ -24,6 +25,7 @@ class ContactFormSection extends React.Component {
       }
     });
   }
+
   handleSubmit(event) {
     event.preventDefault();
     // Send form data to server
@@ -39,6 +41,7 @@ class ContactFormSection extends React.Component {
     // Clear form fields after submission
     event.target.reset();
   }
+
   render() {
     return (
       <section className={styles.ContactFormSection}>

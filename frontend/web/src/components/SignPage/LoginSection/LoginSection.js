@@ -13,6 +13,7 @@ class LoginSection extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
     const { name, value } = event.target;
     this.setState(prevState => ({
@@ -22,12 +23,14 @@ class LoginSection extends React.Component {
       }
     }));
   }
+
   handleSubmit(event) {
     event.preventDefault();
     // Add your login logic here
     console.log("Submit login form", this.state.loginForm);
     this.setState({ loginForm: { username: '', password: '' } });
   }
+
   render() {
     return (
       <section className={styles.LoginSection}>

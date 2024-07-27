@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './ContactUsPage.module.scss';
-import ContactInfoSection from './ContactInfoSection/ContactInfoSection';
 import ContactFormSection from './ContactFormSection/ContactFormSection';
+import ContactInfoSection from './ContactInfoSection/ContactInfoSection';
+import styles from './ContactUsPage.module.scss';
 
 class ContactUsPage extends React.Component {
   render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FeaturePage.module.scss';
-import IntroSection from './IntroSection/IntroSection';
 import FeaturesSection from './FeaturesSection/FeaturesSection';
+import IntroSection from './IntroSection/IntroSection';
 
 class FeaturePage extends React.Component {
   render() {
@@ -10,7 +10,6 @@ class FeaturePage extends React.Component {
         <IntroSection />
         <FeaturesSection />
       </div>
-
     );
   }
 }

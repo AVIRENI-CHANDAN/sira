@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './CallToActionSection.module.scss';
 import { Link } from 'react-router-dom';
+import styles from './CallToActionSection.module.scss';
 
 class CallToActionSection extends React.Component {
   render() {
