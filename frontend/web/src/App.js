@@ -9,6 +9,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import PricingPage from './components/PricingPage/PricingPage';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage/PrivacyPolicyPage';
 import SignPage from './components/SignPage/SignPage';
 import TermsPage from './components/TermsPage/TermsPage';
 
@@ -29,6 +30,7 @@ class App extends React.Component {
               <Route path='/pricing' element={<PricingPage />} />
               <Route path='/auth' element={<SignPage />} />
               <Route path='/terms' element={<TermsPage />} />
+              <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
             <ApplicationFooter />
