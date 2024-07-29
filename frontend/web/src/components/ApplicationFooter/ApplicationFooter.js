@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './ApplicationFooter.module.scss';
 
 class ApplicationFooter extends React.Component {
@@ -13,8 +13,12 @@ class ApplicationFooter extends React.Component {
             <div className={styles.RightReservedLine}>All rights reserved</div>
           </div>
           <div className={styles.LinksWrapper}>
-            <Link to="/terms" className={styles.Link}>Terms</Link>
-            <Link to="/privacy-policy" className={styles.Link}>Privacy policy</Link>
+            <NavLink to="/terms" className={
+              ({ isActive }) => (isActive) ? styles.ActiveLink : styles.Link
+            }>Terms</NavLink>
+            <NavLink to="/privacy-policy" className={
+              ({ isActive }) => (isActive) ? styles.ActiveLink : styles.Link
+            }>Privacy policy</NavLink>
           </div>
         </div>
       </footer>

@@ -63,6 +63,11 @@ footer.ApplicationFooter {
                     text-decoration: underline;
                 }
             }
+
+            a.ActiveLink {
+                @extend .Link;
+                text-decoration: underline;
+            }
         }
     }
 }
