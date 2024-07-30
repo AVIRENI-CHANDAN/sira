@@ -1,5 +1,7 @@
 from flask import Flask
 
+from database import configure_db
+from database.config import ConfigSQLite
 from routes import enable_cors, register_react_base_endpoint
 from settings import DEBUG, HOST, PORT, STATIC_FOLDER, TEMPLATE_FOLDER
 
@@ -33,6 +35,7 @@ def register_routes(app, *blueprints):
 
 # Create an app instance
 app = create_app()
+configure_db(app, ConfigSQLite)
 
 # Entry point
 if __name__ == "__main__":
