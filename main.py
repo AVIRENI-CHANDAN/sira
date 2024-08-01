@@ -1,3 +1,5 @@
+import logging
+
 from flask import Flask
 
 from database import configure_db
@@ -36,6 +38,7 @@ def register_routes(app, *blueprints):
 
 # Create an app instance
 app = create_app()
+app.logger.setLevel(logging.DEBUG if DEBUG else logging.WARNING)
 configure_db(app, ConfigSQLite)
 
 # Entry point
