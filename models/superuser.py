@@ -1,12 +1,11 @@
 import os
 
-from flask_login import UserMixin
 from werkzeug.security import generate_password_hash
 
 from database import db
 
 
-class SuperUser(UserMixin, db.Model):
+class SuperUser(db.Model):
     __tablename__ = "super_user"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
