@@ -40,6 +40,7 @@ def register_routes(app, *blueprints):
 app = create_app()
 app.logger.setLevel(logging.DEBUG if DEBUG else logging.WARNING)
 configure_db(app, ConfigSQLite)
+create_super_user(app)
 
 # Entry point
 if __name__ == "__main__":
