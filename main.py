@@ -2,6 +2,7 @@ import logging
 
 from flask import Flask
 
+from authentication import configure_jwt
 from database import configure_db
 from database.config import ConfigSQLite
 from models import *
@@ -15,9 +16,12 @@ def create_app():
 
     from admin import admin_app
     from api_routes import app as api_routes_blueprint
+    from authentication import auth_app_routes, jwt_app_routes
 
     # Register routes
-    register_routes(app, api_routes_blueprint, admin_app)
+    register_routes(
+        app, api_routes_blueprint, admin_app, auth_app_routes, jwt_app_routes
+    )
 
     return app
 
@@ -41,8 +45,11 @@ app = create_app()
 app.logger.setLevel(logging.DEBUG if DEBUG else logging.WARNING)
 configure_db(app, ConfigSQLite)
 create_super_user(app)
+configure_jwt(app)
 
 # Entry point
 if __name__ == "__main__":
+    if DEBUG:
+        print("App url map:\n", app.url_map)
     enable_cors(app)
     app.run(debug=DEBUG, host=HOST, port=PORT)
