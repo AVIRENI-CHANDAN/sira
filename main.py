@@ -2,6 +2,7 @@ from flask import Flask
 
 from database import configure_db
 from database.config import ConfigSQLite
+from models import *
 from routes import enable_cors, register_react_base_endpoint
 from settings import DEBUG, HOST, PORT, STATIC_FOLDER, TEMPLATE_FOLDER
 
