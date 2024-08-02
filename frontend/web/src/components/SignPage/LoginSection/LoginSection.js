@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { ApiEndpoints } from '../../../Endpoints';
 import styles from './LoginSection.module.scss';
 
 class LoginSection extends React.Component {
@@ -28,7 +29,19 @@ class LoginSection extends React.Component {
     event.preventDefault();
     // Add your login logic here
     console.log("Submit login form", this.state.loginForm);
-    this.setState({ loginForm: { username: '', password: '' } });
+    fetch(ApiEndpoints.USER_LOGIN, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state.loginForm)
+    }).then(response => {
+      console.log("Response from the api");
+      return response.json();
+    }).then(data => {
+      console.log("Response", data);
+      this.setState({ loginForm: { username: '', password: '' } });
+    });
   }
 
   render() {
