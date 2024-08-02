@@ -12,6 +12,7 @@ import PricingPage from './components/PricingPage/PricingPage';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage/PrivacyPolicyPage';
 import SignPage from './components/SignPage/SignPage';
 import TermsPage from './components/TermsPage/TermsPage';
+import { RouteEndpoints } from './Endpoints';
 
 class App extends React.Component {
   render() {
@@ -23,14 +24,14 @@ class App extends React.Component {
           </div>
           <div className={styles.PageContainer}>
             <Routes>
-              <Route path='/' element={<LandingPage />} />
-              <Route path='/features' element={<FeaturePage />} />
-              <Route path='/contact' element={<ContactUsPage />} />
-              <Route path='/about' element={<AboutPage />} />
-              <Route path='/pricing' element={<PricingPage />} />
-              <Route path='/auth' element={<SignPage />} />
-              <Route path='/terms' element={<TermsPage />} />
-              <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
+              <Route path={RouteEndpoints.LANDING_PAGE} element={<LandingPage />} />
+              <Route path={RouteEndpoints.FEATURES_PAGE} element={<FeaturePage />} />
+              <Route path={RouteEndpoints.CONTACT_PAGE} element={<ContactUsPage />} />
+              <Route path={RouteEndpoints.ABOUT_PAGE} element={<AboutPage />} />
+              <Route path={RouteEndpoints.PRICING_PAGE} element={<PricingPage />} />
+              <Route path={RouteEndpoints.AUTHENTICATION_PAGE} element={<SignPage />} />
+              <Route path={RouteEndpoints.TERMS_PAGE} element={<TermsPage />} />
+              <Route path={RouteEndpoints.PRIVACY_POLICY_PAGE} element={<PrivacyPolicyPage />} />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
             <ApplicationFooter />
