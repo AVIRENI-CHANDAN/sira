@@ -7,6 +7,7 @@ class RouteEndpoints {
     static AUTHENTICATION_PAGE = Object.freeze('/auth');
     static TERMS_PAGE = Object.freeze('/terms');
     static PRIVACY_POLICY_PAGE = Object.freeze('/privacy-policy');
+    static USER_HOME = Object.freeze("/user/home");
 }
 class ApiEndpoints {
     static ALL_TEAM_MEMBERS = Object.freeze("/api/team/all");
