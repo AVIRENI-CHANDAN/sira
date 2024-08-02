@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import styles from './ApplicationFooter.module.scss';
+import { RouteEndpoints } from '../../Endpoints';
 
 class ApplicationFooter extends React.Component {
   render() {
@@ -13,10 +14,10 @@ class ApplicationFooter extends React.Component {
             <div className={styles.RightReservedLine}>All rights reserved</div>
           </div>
           <div className={styles.LinksWrapper}>
-            <NavLink to="/terms" className={
+            <NavLink to={RouteEndpoints.TERMS_PAGE} className={
               ({ isActive }) => (isActive) ? styles.ActiveLink : styles.Link
             }>Terms</NavLink>
-            <NavLink to="/privacy-policy" className={
+            <NavLink to={RouteEndpoints.PRIVACY_POLICY_PAGE} className={
               ({ isActive }) => (isActive) ? styles.ActiveLink : styles.Link
             }>Privacy policy</NavLink>
           </div>
