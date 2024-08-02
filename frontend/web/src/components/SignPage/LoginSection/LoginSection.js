@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { ApiEndpoints } from '../../../Endpoints';
+import withNavigation from '../../../withNavigate';
 import styles from './LoginSection.module.scss';
 
 class LoginSection extends React.Component {
@@ -27,8 +28,6 @@ class LoginSection extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // Add your login logic here
-    console.log("Submit login form", this.state.loginForm);
     fetch(ApiEndpoints.USER_LOGIN, {
       method: 'POST',
       headers: {
@@ -36,12 +35,22 @@ class LoginSection extends React.Component {
       },
       body: JSON.stringify(this.state.loginForm)
     }).then(response => {
-      console.log("Response from the api");
       return response.json();
     }).then(data => {
-      console.log("Response", data);
+      localStorage.setItem('access_token', data.access_token);
+      localStorage.setItem('refresh_token', data.refresh_token);
+      const user = JSON.parse(atob(data.access_token.split('.')[1]));
+      localStorage.setItem('user_role', user.role);
+      console.log("The user of the application", user);
       this.setState({ loginForm: { username: '', password: '' } });
-    });
+      if (user.role === 'super_user') {
+        this.props.navigate('/super-dashboard');
+      } else {
+        this.props.navigate('/user-dashboard');
+      }
+    }).catch(error => {
+      console.error('Error:', error);
+    })
   }
 
   render() {
@@ -69,9 +78,10 @@ class LoginSection extends React.Component {
 }
 
 LoginSection.propTypes = {
-  toggleFunc: PropTypes.func.isRequired
+  toggleFunc: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired
 };
 
 LoginSection.defaultProps = {};
 
-export default LoginSection;
+export default withNavigation(LoginSection);
