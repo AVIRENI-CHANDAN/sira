@@ -43,7 +43,7 @@ class LoginSection extends React.Component {
       localStorage.setItem('user_role', user.sub.role);
       console.log("The user of the application", user);
       this.setState({ loginForm: { username: '', password: '' } });
-      if (user.role === 'super_user') {
+      if (user.sub.role === 'super_user') {
         this.props.navigate('/super-dashboard');
       } else {
         this.props.navigate('/user-dashboard');
