@@ -40,7 +40,7 @@ class LoginSection extends React.Component {
       localStorage.setItem('access_token', data.access_token);
       localStorage.setItem('refresh_token', data.refresh_token);
       const user = JSON.parse(atob(data.access_token.split('.')[1]));
-      localStorage.setItem('user_role', user.role);
+      localStorage.setItem('user_role', user.sub.role);
       console.log("The user of the application", user);
       this.setState({ loginForm: { username: '', password: '' } });
       if (user.role === 'super_user') {
