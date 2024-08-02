@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './TeamSection.module.scss';
+import { ApiEndpoints } from '../../../Endpoints';
 
 class TeamSection extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class TeamSection extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/team/all')
+    fetch(ApiEndpoints.ALL_TEAM_MEMBERS)
       .then(response => response.json())
       .then(response => response['team'])
       .then(data => {
