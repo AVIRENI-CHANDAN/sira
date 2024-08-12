@@ -14,6 +14,7 @@ class ApiEndpoints {
     static USER_LOGIN = Object.freeze("/auth/login");
     static USER_LOGOUT = Object.freeze("/auth/logout");
     static JWT_REFRESH = Object.freeze("/jwt/refresh");
+    static JWT_VALIDATE = Object.freeze("/jwt/validate");
     static ADMIN_HOME = Object.freeze("/admin");
 }
 
