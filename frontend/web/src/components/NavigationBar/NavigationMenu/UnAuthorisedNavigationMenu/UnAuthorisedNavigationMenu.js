@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import { RouteEndpoints } from "../../../../Endpoints";
+import validateToken from "../../../../validateToken";
 import styles from '../NavigationMenu.module.scss';
 
 class UnAuthorisedNavigationMenu extends React.Component {
@@ -23,4 +24,4 @@ UnAuthorisedNavigationMenu.propTypes = {};
 
 UnAuthorisedNavigationMenu.defaultProps = {};
 
-export default UnAuthorisedNavigationMenu;
+export default validateToken(UnAuthorisedNavigationMenu);
