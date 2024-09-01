@@ -9,7 +9,7 @@ div.App {
 
   div.PageContainer {
     flex: 1 1 auto;
-    overflow: scroll;
+    overflow: auto;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
