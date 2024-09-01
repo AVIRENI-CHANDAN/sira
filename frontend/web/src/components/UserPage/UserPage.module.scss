@@ -1,1 +1,19 @@
-.UserPage {}
+div.UserPage {
+    display: flex;
+    flex: row nowrap;
+    border: 1px solid red;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    section.ModelsSection {
+        flex: 0 0 150px;
+        border: 2px solid red;
+        height: 100%;
+    }
+
+    section.ModelListSection {
+        flex: 1 1 auto;
+        border: 2px solid green;
+        height: 100%;
+    }
+}

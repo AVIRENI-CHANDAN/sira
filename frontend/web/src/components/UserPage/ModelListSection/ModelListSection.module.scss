@@ -1,0 +1,33 @@
+div.ModelListSection {
+    height: 100%;
+    overflow-y: auto;
+
+    div.ModelListWrapper {
+        height: 100%;
+        width: 100%;
+
+        div.ModelsList {
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 8px;
+            gap: 6px;
+            height: 100%;
+
+            div.Model {
+                border: 1px solid gray;
+                cursor: pointer;
+                padding: 8px;
+                text-align: center;
+                border-radius: 8px;
+                color: var(--dark-text);
+                transition: all 300ms ease-in-out 100ms;
+
+                &:hover {
+                    color: var(--light-text);
+                    background-color: var(--primary-color);
+                    box-shadow: 0 0 4px gray;
+                }
+            }
+        }
+    }
+}
