@@ -13,7 +13,7 @@ import PrivacyPolicyPage from './components/PrivacyPolicyPage/PrivacyPolicyPage'
 import SignPage from './components/SignPage/SignPage';
 import TermsPage from './components/TermsPage/TermsPage';
 import UserPage from './components/UserPage/UserPage';
-import { RouteEndpoints } from './Endpoints';
+import { ProtectedRouteEndpoints, RouteEndpoints } from './Endpoints';
 
 class App extends React.Component {
   render() {
@@ -33,7 +33,7 @@ class App extends React.Component {
               <Route path={RouteEndpoints.AUTHENTICATION_PAGE} element={<SignPage />} />
               <Route path={RouteEndpoints.TERMS_PAGE} element={<TermsPage />} />
               <Route path={RouteEndpoints.PRIVACY_POLICY_PAGE} element={<PrivacyPolicyPage />} />
-              <Route path={RouteEndpoints.USER_HOME} element={<UserPage />} />
+              <Route path={ProtectedRouteEndpoints.USER_HOME} element={<UserPage />} />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
             <ApplicationFooter />
