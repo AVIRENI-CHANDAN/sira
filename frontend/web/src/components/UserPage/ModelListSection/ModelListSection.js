@@ -30,7 +30,8 @@ class ModelListSection extends React.Component {
         <div className={styles.ModelListWrapper}>
           <div className={styles.ModelsList}>
             {this.state.models.map((item, ind) => (
-              <div className={styles.Model} data-name={item} data-id={ind} key={ind} onClick={this.props.modelClickHandler}>{item}</div>
+              <div className={`${styles.Model} ${(this.props.active_model === item) ? styles.ActiveModel : ''
+                }`} data-name={item} data-id={ind} key={ind} onClick={this.props.modelClickHandler}>{item}</div>
             ))}
           </div>
         </div>

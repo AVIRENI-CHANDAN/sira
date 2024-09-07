@@ -24,7 +24,7 @@ def all_models():
 @app.get("/models/list")
 def get_models_list():
     models = all_models()
-    model_names = [model.__name__ for model in models] * 2
+    model_names = [model.__name__ for model in models]
     return jsonify({"models": model_names}), HTTPStatus.OK
 
 
