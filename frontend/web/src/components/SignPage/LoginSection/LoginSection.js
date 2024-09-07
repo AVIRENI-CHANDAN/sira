@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ApiEndpoints, RouteEndpoints } from '../../../Endpoints';
+import { ApiEndpoints, ProtectedRouteEndpoints } from '../../../Endpoints';
 import withNavigation from '../../../withNavigate';
 import styles from './LoginSection.module.scss';
 
@@ -43,7 +43,7 @@ class LoginSection extends React.Component {
       localStorage.setItem('user_role', user.sub.role);
       console.log("The user of the application", user);
       this.setState({ loginForm: { username: '', password: '' } });
-      this.props.navigate(RouteEndpoints.USER_HOME);
+      this.props.navigate(ProtectedRouteEndpoints.USER_HOME);
     }).catch(error => {
       console.error('Error:', error);
     })

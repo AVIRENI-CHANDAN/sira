@@ -7,6 +7,8 @@ class RouteEndpoints {
     static AUTHENTICATION_PAGE = Object.freeze('/auth');
     static TERMS_PAGE = Object.freeze('/terms');
     static PRIVACY_POLICY_PAGE = Object.freeze('/privacy-policy');
+}
+class ProtectedRouteEndpoints {
     static USER_HOME = Object.freeze("/user/home");
 }
 class ApiEndpoints {
@@ -18,4 +20,5 @@ class ApiEndpoints {
     static ADMIN_HOME = Object.freeze("/admin");
 }
 
-export { ApiEndpoints, RouteEndpoints };
+export { ApiEndpoints, ProtectedRouteEndpoints, RouteEndpoints };
+

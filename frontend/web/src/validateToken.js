@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ApiEndpoints, RouteEndpoints } from "./Endpoints";
+import { ApiEndpoints, ProtectedRouteEndpoints } from "./Endpoints";
 
 const validateToken = (Component) => {
     return (props) => {
@@ -22,7 +22,7 @@ const validateToken = (Component) => {
                     console.log("Checking access_token token");
                     if (response.ok) {
                         console.log("Valid access_token");
-                        navigate(RouteEndpoints.USER_HOME);
+                        navigate(ProtectedRouteEndpoints.USER_HOME);
                     } else if (response.status === 401) {
                         console.log("Invalid access token");
                         localStorage.removeItem("user_role");
