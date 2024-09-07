@@ -28,6 +28,11 @@ div.ModelListSection {
                     box-shadow: 0 0 4px gray;
                 }
             }
+
+            div.ActiveModel {
+                background-color: var(--secondary-color);
+                color: var(--light-text)
+            }
         }
     }
 }
