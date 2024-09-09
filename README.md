@@ -46,13 +46,16 @@ SIRA is a project management tool inspired by JIRA, designed to help teams plan,
      ```bash
      pip install -r requirements.txt
      ```
-   - Set up the SQLite database:
-     ```bash
-     flask db upgrade
+   - Initialise the necessary environment variables:
+     ```text
+      DB_PATH
+      SECRET_KEY
+      JWT_SECRET_KEY
+      DEBUG
      ```
-   - Run the backend server:
+   - Run the development backend server:
      ```bash
-     flask run
+     python main.py
      ```
 
 3. **Frontend Setup:**
