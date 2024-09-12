@@ -35,7 +35,10 @@ class LoginSection extends React.Component {
       },
       body: JSON.stringify(this.state.loginForm)
     }).then(response => {
-      return response.json();
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
     }).then(data => {
       localStorage.setItem('access_token', data.access_token);
       localStorage.setItem('refresh_token', data.refresh_token);
