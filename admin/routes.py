@@ -17,7 +17,7 @@ def admin_home():
 def all_models():
     all_mdls = db.Model.__subclasses__()
     for mdl in all_mdls:
-        models[mdl.__name__.lower()] = mdl
+        models[mdl.__name__] = mdl
     return all_mdls
 
 
