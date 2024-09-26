@@ -30,7 +30,7 @@ def get_models_list():
 
 @app.get("/models/all/<model>")
 def get_all_models(model):
-    current_app.logger.info(f"Request received with model: {model}, models: {models}")
+    current_app.logger.info(f"Request received with model: {model}, model count: {len(models)}")
     if model in models:
         current_app.logger.info(f"Input model: {model}")
         current_app.logger.info(f"Type of models collection: {type(models)}")
