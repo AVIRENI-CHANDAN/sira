@@ -17,7 +17,7 @@ def admin_home():
 def all_models():
     all_mdls = db.Model.__subclasses__()
     for mdl in all_mdls:
-        models[mdl.__name__] = mdl
+        models[mdl.__name__.lower()] = mdl
     return all_mdls
 
 
@@ -48,3 +48,9 @@ def get_all_models(model):
             HTTPStatus.OK,
         )
     return jsonify({"error": "Invalid model"}), HTTPStatus.NOT_FOUND
+
+
+@app.get("/models/all/count")
+def get_all_models_counts():
+    model_counts = {model: models[model].query.count() for model in models}
+    return jsonify(model_counts=model_counts), HTTPStatus.OK
