@@ -1,4 +1,5 @@
 import React from 'react';
+import Dashboard from './Dashboard/Dashboard';
 import ModelListSection from './ModelListSection/ModelListSection';
 import ModelsSection from './ModelsSection/ModelsSection';
 import styles from './UserPage.module.scss';
@@ -7,7 +8,8 @@ class UserPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active_model: ""
+      active_model: "",
+      active_model_objects: []
     }
     this.handleModelClick = this.handleModelClick.bind(this);
   }
@@ -23,6 +25,18 @@ class UserPage extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    console.log("UserPage Updated");
+    if (this.state.active_model) {
+      console.log("Active Model updated");
+      fetch(`/admin/models/all/${this.state.active_model.toLowerCase()}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log("Data from response", data);
+        });
+    }
+  }
+
   render() {
     return (
       <div className={styles.UserPage}>
@@ -30,13 +44,16 @@ class UserPage extends React.Component {
           <ModelListSection modelClickHandler={this.handleModelClick} active_model={this.state.active_model} />
         </section>
         <section className={styles.ModelListSection}>
-          <ModelsSection />
+          {this.state.active_model ? (
+            <ModelsSection active_model={this.state.active_model} />
+          ) : (
+            <Dashboard />
+          )}
         </section>
       </div>
     );
   }
 }
-
 UserPage.propTypes = {};
 
 UserPage.defaultProps = {};
