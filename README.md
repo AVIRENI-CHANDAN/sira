@@ -48,10 +48,13 @@ SIRA is a project management tool inspired by JIRA, designed to help teams plan,
      ```
    - Initialise the necessary environment variables:
      ```text
-      DB_PATH
-      SECRET_KEY
-      JWT_SECRET_KEY
-      DEBUG
+      DB_PATH=
+      SECRET_KEY=
+      JWT_SECRET_KEY=
+      DEBUG=
+      SUPERUSER_USERNAME=
+      SUPERUSER_EMAIL=
+      SUPERUSER_PASSWORD=
      ```
    - Run the development backend server:
      ```bash
