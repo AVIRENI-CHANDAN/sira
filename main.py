@@ -14,6 +14,19 @@ from settings import DEBUG, HOST, PORT, STATIC_FOLDER, TEMPLATE_FOLDER
 def create_app():
     app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLDER)
 
+    # Set up logging
+    handler = logging.StreamHandler()
+    handler.setLevel(
+        logging.DEBUG if DEBUG else logging.INFO
+    )  # Handle both DEBUG and INFO modes
+    formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
+    handler.setFormatter(formatter)
+    app.logger.addHandler(handler)
+
+    app.logger.setLevel(logging.DEBUG if DEBUG else logging.INFO)  # Set log level
+
     from admin import admin_app
     from api_routes import app as api_routes_blueprint
     from authentication import auth_app_routes, jwt_app_routes
@@ -50,6 +63,6 @@ configure_jwt(app)
 # Entry point
 if __name__ == "__main__":
     if DEBUG:
-        print("App url map:\n", app.url_map)
+        app.logger.info(f"App url map:\n{ app.url_map }")
     enable_cors(app)
     app.run(debug=DEBUG, host=HOST, port=PORT)
