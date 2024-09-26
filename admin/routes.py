@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-from flask import Blueprint, jsonify
+from flask import Blueprint, current_app, jsonify
 
 from database import db
 
@@ -28,10 +28,23 @@ def get_models_list():
     return jsonify({"models": model_names}), HTTPStatus.OK
 
 
-@app.get("/models/all/{model}")
+@app.get("/models/all/<model>")
 def get_all_models(model):
+    current_app.logger.info(f"Request received with model: {model}, models: {models}")
     if model in models:
-        print("Input model", model)
-        print("Type of models collection", type(models))
-        return jsonify({"msg": "from admin models all model"}), HTTPStatus.OK
+        current_app.logger.info(f"Input model: {model}")
+        current_app.logger.info(f"Type of models collection: {type(models)}")
+        model_objects = [
+            {c.key: getattr(obj, c.key) for c in inspect(obj).mapper.column_attrs}
+            for obj in models[model].query.all()
+        ]
+        return (
+            jsonify(
+                {
+                    "msg": f"from admin models all model - {model}",
+                    "objects": model_objects,
+                }
+            ),
+            HTTPStatus.OK,
+        )
     return jsonify({"error": "Invalid model"}), HTTPStatus.NOT_FOUND
