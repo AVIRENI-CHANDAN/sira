@@ -16,6 +16,28 @@
   --info-color: #4285F4;
 }
 
+/* Target the scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Target the scrollbar track (the background part) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Target the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Hover effect on the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 html,
 body {
   height: 100%;
