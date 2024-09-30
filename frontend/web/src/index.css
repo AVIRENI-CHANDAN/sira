@@ -19,7 +19,6 @@
 /* Target the scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
-  /* Change this value to make the scrollbar thinner */
   height: 6px;
 }
 
@@ -31,15 +30,12 @@
 /* Target the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
   background: #888;
-  /* Color of the scrollbar */
   border-radius: 6px;
-  /* Rounding the edges */
 }
 
 /* Hover effect on the scrollbar thumb */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-  /* Change color when hovered */
 }
 
 html,
