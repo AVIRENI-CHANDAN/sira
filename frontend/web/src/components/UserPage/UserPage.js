@@ -1,4 +1,5 @@
 import React from 'react';
+import validateToken from '../../validateToken';
 import Dashboard from './Dashboard/Dashboard';
 import ModelListSection from './ModelListSection/ModelListSection';
 import ModelsSection from './ModelsSection/ModelsSection';
@@ -58,4 +59,4 @@ UserPage.propTypes = {};
 
 UserPage.defaultProps = {};
 
-export default UserPage;
+export default validateToken(UserPage);
