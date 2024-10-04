@@ -21,7 +21,12 @@ class Dashboard extends React.Component {
         }
       }
     )
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => data['model_counts'])
       .then(data => {
         console.log("Data", data, typeof (data));
