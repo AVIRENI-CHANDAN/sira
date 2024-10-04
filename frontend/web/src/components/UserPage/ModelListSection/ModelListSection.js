@@ -13,14 +13,24 @@ class ModelListSection extends React.Component {
     console.log('ModelListSection component loaded');
     const access_token = localStorage.getItem('access_token');
     const refresh_token = localStorage.getItem('refresh_token');
-    fetch("/admin/models/list")
-      .then(response => response.json())
-      .then(data => data['models'])
-      .then(result => {
-        this.setState({ models: result });
+    fetch("/admin/models/list", {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ models: data['models'] });
       })
       .catch((error) => {
-        console.error(error.message);
+        console.error("Error fetching models:", error.message);
       });
   }
 

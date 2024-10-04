@@ -9,7 +9,6 @@ const validateToken = (Component) => {
         useEffect(() => {
             const access_token = localStorage.getItem('access_token');
             const refresh_token = localStorage.getItem('refresh_token');
-            console.log("Values in tokens", access_token, refresh_token);
 
             if (access_token && refresh_token) {
                 fetch(ApiEndpoints.JWT_VALIDATE, {
@@ -46,10 +45,12 @@ const validateToken = (Component) => {
                             const user = JSON.parse(atob(data.access_token.split('.')[1]));
                             localStorage.setItem('user_role', user.sub.role);
                         }).catch((error) => {
+                            navigate("/auth");
                             console.log("Error while refreshing the refresh_token", error);
                         });
                     }
                 }).catch((error) => {
+                    navigate("/auth");
                     console.log("Error while validating the access token ", error);
                 });
             }
