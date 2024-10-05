@@ -38,11 +38,10 @@ class Dashboard extends React.Component {
           });
           this.setState({ total_count: total_object_count });
         }
+      })
+      .catch(err => {
+        console.error("Error", err);
       });
-    // .then(data => {
-    //   // this.setState({ total_count: data["count"] });
-    //   console.log("Sound", data);
-    // });
   }
   render() {
     if (this.state.model_counts) {
