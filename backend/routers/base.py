@@ -4,4 +4,4 @@ router = APIRouter(prefix="", tags=["base"])
 
 @router.get("/")
 def root_route():
-    return {"message":"Welcome FastAPI!"}
+    return {"message":"Welcome to FastAPI!"}
