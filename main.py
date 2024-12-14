@@ -1,7 +1,4 @@
-from backend import create_app
-
+from backend import create_app, include_routers
+from backend.routers import base_router
 app = create_app()
-
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to FastAPI!"}
+include_routers([base_router], app)
