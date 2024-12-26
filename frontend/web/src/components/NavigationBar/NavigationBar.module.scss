@@ -80,12 +80,15 @@
                     text-align: center;
                     border: 1px solid $light-border-color;
                     border-radius: 0.5rem;
-                    transition: all 0.2s ease-in-out;
+                    transition: transform 0.2s ease-in-out, 
+                              background-color 0.2s ease-in-out,
+                              color 0.2s ease-in-out,
+                              border 0.2s ease-in-out;
 
                     &:hover {
                         background-color: $primary-color-light;
                         color: $light-text-color;
-                        box-shadow: 0 0 24px $primary-color-light;
+                        transform: scale(1.05);
                         border: 1px solid transparent;
                     }
                 }
