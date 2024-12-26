@@ -1,0 +1,28 @@
+// Primary Color
+$primary-color: #1A73E8; // Blue
+$primary-color-light: lighten($primary-color, 10%);
+$primary-color-dark: darken($primary-color, 10%);
+
+// Secondary Color
+$secondary-color: #34A853; // Green
+
+// Accent Color
+$accent-color: #FBBC05; // Yellow
+
+// Background Color
+$background-color: #F4F5F7; // Light Gray
+
+// Border Color
+$light-border-color: #E0E0E0; // Light Gray
+
+// Error Color
+$error-color: #D93025; // Red
+
+// Link Color
+$link-color: #5F6368; // Muted Gray
+
+// Light text
+$light-text-color: #FCFCFC; // Milky white
+
+// Dark text
+$dark-text-color: #202124; // Dark Charcoal

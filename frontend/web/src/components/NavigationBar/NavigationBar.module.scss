@@ -1,0 +1,95 @@
+@import '../pallette.scss';
+
+.NavigationBar {
+    padding: 12px 24px;
+    background-color: $primary-color;
+    color: $light-text-color;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+
+    &>div {
+        height: 100%;
+    }
+
+    .LogoContainer {
+        flex: 0 0 1rem;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 8px;
+        cursor: pointer;
+
+        &>div {
+            flex: 1 1 auto;
+        }
+
+        .LogoWrapper {
+            height: 100%;
+
+            .LogoImageBox {
+                height: 100%;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+
+                .LogoImage {
+                    position: relative;
+                    height: 2rem;
+                }
+            }
+        }
+
+        .TitleWrapper {
+            display: flex;
+
+            .TitleBox {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .Title {
+                    font-style: italic;
+
+                    &::first-letter {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .ActionContainer {
+        flex: 1 1 auto;
+
+        .ActionWrapper {
+
+            .ActionsBox {
+                display: flex;
+                justify-content: flex-end;
+                display: flex;
+                flex-flow: row nowrap;
+
+                .ActionButton {
+                    flex: 0 0 100px;
+                    cursor: pointer;
+                    padding: 6px 12px;
+                    text-align: center;
+                    border: 1px solid $light-border-color;
+                    border-radius: 0.5rem;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        background-color: $primary-color-light;
+                        color: $light-text-color;
+                        box-shadow: 0 0 24px $primary-color-light;
+                        border: 1px solid transparent;
+                    }
+                }
+            }
+        }
+    }
+}
