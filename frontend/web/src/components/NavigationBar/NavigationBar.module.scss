@@ -80,6 +80,8 @@
                     text-align: center;
                     border: 1px solid $light-border-color;
                     border-radius: 0.5rem;
+                    transform: translateZ(0);
+                    will-change: transform;
                     transition: transform 0.2s ease-in-out, 
                               background-color 0.2s ease-in-out,
                               color 0.2s ease-in-out,
