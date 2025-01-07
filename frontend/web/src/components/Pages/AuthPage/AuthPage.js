@@ -7,12 +7,14 @@ function AuthLogin({ toggleToRegister }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleAuthToggle = () => {
+  const handleAuthToggle = (e) => {
+    e.preventDefault();
     console.log("Auth toggle clicked");
     toggleToRegister("register");
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("Handle login submit");
   };
 
@@ -31,7 +33,7 @@ function AuthLogin({ toggleToRegister }) {
                 <label className={styles.Label} htmlFor="password">Password</label>
                 <input className={styles.Input} type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
-              <input className={((username.length > 0) && (password.length > 0)) ? styles.SubmitBtn : styles.InactiveSubmitBtn} onClick={handleSubmit} type="submit" value="Login" />
+              <button className={((username.length > 0) && (password.length > 0)) ? styles.SubmitBtn : styles.InactiveSubmitBtn} onClick={handleSubmit} type="submit">Login</button>
             </form>
             <div className={styles.AuthTypeRedirectContainer}>
               <div className={styles.AuthTypeRedirect} onClick={() => handleAuthToggle("register")}>
