@@ -26,11 +26,11 @@ function AuthLogin({ toggleToRegister }) {
             <form className={styles.Form}>
               <div className={styles.FormGroup}>
                 <label className={styles.Label} htmlFor="username">Username</label>
-                <input className={styles.Input} type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input className={styles.Input} type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} autoComplete="username webauthn" />
               </div>
               <div className={styles.FormGroup}>
                 <label className={styles.Label} htmlFor="password">Password</label>
-                <input className={styles.Input} type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input className={styles.Input} type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password webauthn" />
               </div>
               <button className={((username.length > 0) && (password.length > 0)) ? styles.SubmitBtn : styles.InactiveSubmitBtn} onClick={handleSubmit} type="submit">Login</button>
             </form>
