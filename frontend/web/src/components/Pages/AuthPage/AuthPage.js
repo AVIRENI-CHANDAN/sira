@@ -7,8 +7,7 @@ function AuthLogin({ toggleToRegister }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleAuthToggle = (e) => {
-    e.preventDefault();
+  const handleAuthToggle = () => {
     console.log("Auth toggle clicked");
     toggleToRegister("register");
   };
