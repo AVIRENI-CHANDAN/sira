@@ -14,5 +14,5 @@ class BaseRouteResponse(BaseModel):
 
 
 @router.get("/", response_model=BaseRouteResponse)
-def root_route():
+async def root_route():
     return {"message": "Welcome to FastAPI!"}
