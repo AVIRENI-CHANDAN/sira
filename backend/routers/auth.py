@@ -6,7 +6,7 @@ from http import HTTPStatus
 auth = APIRouter(prefix="/auth", tags=["authentication"])
 
 USERNAME_PATTERN = r"^[a-zA-Z0-9]+$"
-PASSWORD_PATTERN = r"^[a-zA-Z0-9\!\@\#\$\%\^\&\*]+$"
+PASSWORD_PATTERN = r"^[a-zA-Z0-9\!\@\#\$\%\^\&\*\-\_\.\,\;\:\?\+\=\~\|\\\{\}\[\]\(\)]+$"
 NAME_PATTERN = r"^[A-Za-z]+$"
 EMAIL_PATTERN = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z\.]+$"
 PHONE_PATTERN = r"^(\+[0-9]+)?[0-9]{10}$"
