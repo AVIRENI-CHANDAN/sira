@@ -15,7 +15,7 @@ PHONE_PATTERN = r"^(\+[0-9]+)?[0-9]{10}$"
 class AuthErrorResponse(BaseModel):
     error: str
     http_code: int = Field(
-        HTTPStatus.SERVICE_UNAVAILABLE,
+        HTTPStatus.UNAUTHORIZED,
         alias="statusCode",
         description="HTTP status code of the error",
     )
