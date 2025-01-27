@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Form, Depends
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from typing import Union
 from http import HTTPStatus
 
@@ -8,7 +8,7 @@ auth = APIRouter(prefix="/auth", tags=["authentication"])
 USERNAME_PATTERN = r"^[a-zA-Z0-9]+$"
 PASSWORD_PATTERN = r"^[a-zA-Z0-9\!\@\#\$\%\^\&\*]+$"
 NAME_PATTERN = r"^[A-Za-z]+$"
-EMAIL_PATTERN = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z\.]+$"
+EMAIL_PATTERN = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z\.\-]+$"
 PHONE_PATTERN = r"^(\+[0-9]+)?[0-9]{10}$"
 
 
@@ -38,6 +38,12 @@ class RegistrationRequest(BaseModel):
     city: str = Field("", min_length=3, max_length=255)
     state: str = Field("", min_length=3, max_length=64)
     country: str = Field(..., min_length=3, max_length=64)
+
+    @validator("cnfm_pswd")
+    def passwords_match(cls, cnfm_pswd, values):
+        if "password" in values and cnfm_pswd != values["password"]:
+            raise ValueError("Password and confirm password do not match")
+        return cnfm_pswd
 
 
 class LoginSuccessResponse(BaseModel):
