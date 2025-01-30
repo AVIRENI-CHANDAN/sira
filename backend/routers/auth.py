@@ -5,8 +5,8 @@ from http import HTTPStatus
 
 auth = APIRouter(prefix="/auth", tags=["authentication"])
 
-USERNAME_PATTERN = r"^[a-zA-Z0-9]+$"
-PASSWORD_PATTERN = r"^[a-zA-Z0-9\!\@\#\$\%\^\&\*\-\_\.\,\;\:\?\+\=\~\|\\\{\}\[\]\(\)]+$"
+USERNAME_PATTERN = r"^[a-zA-Z0-9]{3,20}$"
+PASSWORD_PATTERN = r"^[a-zA-Z0-9!@#$%^&*\-_.;,:\?+=~|\\{}\[\]()]{8,}$"
 NAME_PATTERN = r"^[A-Za-z]+$"
 EMAIL_PATTERN = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z\.\-]+$"
 PHONE_PATTERN = r"^(\+[0-9]+)?[0-9]{10}$"
@@ -66,16 +66,17 @@ class TokenRefreshSuccessResponse(BaseModel):
     access_token: str
 
 
-LoginResponse = Union[AuthErrorResponse, LoginSuccessResponse]
-RegisterResponse = Union[AuthErrorResponse, RegisterSuccessResponse]
-LogoutResponse = Union[AuthErrorResponse, LogoutSuccessResponse]
-TokenRefreshResponse = Union[AuthErrorResponse, TokenRefreshSuccessResponse]
+LoginResponse = Union[LoginSuccessResponse, AuthErrorResponse]
+RegisterResponse = Union[RegisterSuccessResponse, AuthErrorResponse]
+LogoutResponse = Union[LogoutSuccessResponse, AuthErrorResponse]
+TokenRefreshResponse = Union[TokenRefreshSuccessResponse, AuthErrorResponse]
 
 
 @auth.post("/login", response_model=LoginResponse)
-def user_login(form_data: LoginRequest = Depends()):
+def user_login(username: str = Form(...), password: str = Form(...)):
+    print(username, password)
     return {
-        "username": form_data.username,
+        "username": username,
         "access_token": "at123456",
         "refresh_token": "rt789012",
     }
