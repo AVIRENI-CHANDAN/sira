@@ -74,7 +74,6 @@ TokenRefreshResponse = Union[TokenRefreshSuccessResponse, AuthErrorResponse]
 
 @auth.post("/login", response_model=LoginResponse)
 def user_login(username: str = Form(...), password: str = Form(...)):
-    print(username, password)
     return {
         "username": username,
         "access_token": "at123456",
