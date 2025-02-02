@@ -20,5 +20,4 @@ async def log_requests(request: Request, call_next):
     logger.debug(f"Headers: {dict(request.headers)}")
     logger.debug(f"Body: {body.decode() if body else 'No Body'}")
 
-    response = await call_next(request)
-    return response
+    return await call_next(request)
