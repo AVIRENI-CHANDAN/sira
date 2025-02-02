@@ -3,46 +3,105 @@ import NavigationBar from './../../NavigationBar/NavigationBar';
 import styles from './AuthPage.module.scss';
 
 function AuthLogin({ toggleToRegister }) {
-  const form_title = "login";
+  const form_title = "Login";
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // To store login errors
+  const [loading, setLoading] = useState(false); // To show a loading state
 
   const handleAuthToggle = () => {
     console.log("Auth toggle clicked");
     toggleToRegister("register");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Handle login submit");
+    setError("");
+    setLoading(true);
+
+    const formBody = new URLSearchParams({
+      username: username,
+      password: password
+    }).toString();
+
+    try {
+      const response = await fetch("/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formBody
+      });
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        throw new Error("Invalid server response");
+      }
+
+      setLoading(false);
+
+      if (!response.ok) {
+        throw new Error(data?.error || "Login failed");
+      }
+
+      localStorage.setItem("access_token", data.access_token);
+      console.log("Login successful", data);
+
+    } catch (error) {
+      setLoading(false);
+      setError(error.message || "An error occurred");
+    }
   };
 
   return (
-    <>
-      <div className={styles.FormContainerBox}>
-        <div className={styles.FormContainer}>
-          <div className={styles.FormWrapper}>
-            <div className={styles.FormTitle}>{form_title}</div>
-            <form className={styles.Form}>
-              <div className={styles.FormGroup}>
-                <label className={styles.Label} htmlFor="username">Username</label>
-                <input className={styles.Input} type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} autoComplete="username webauthn" />
-              </div>
-              <div className={styles.FormGroup}>
-                <label className={styles.Label} htmlFor="password">Password</label>
-                <input className={styles.Input} type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password webauthn" />
-              </div>
-              <button className={((username.length > 0) && (password.length > 0)) ? styles.SubmitBtn : styles.InactiveSubmitBtn} onClick={handleSubmit} type="submit">Login</button>
-            </form>
-            <div className={styles.AuthTypeRedirectContainer}>
-              <div className={styles.AuthTypeRedirect} onClick={() => handleAuthToggle("register")}>
-                New User? Register here
-              </div>
+    <div className={styles.FormContainerBox}>
+      <div className={styles.FormContainer}>
+        <div className={styles.FormWrapper}>
+          <div className={styles.FormTitle}>{form_title}</div>
+          <form className={styles.Form} onSubmit={handleSubmit}>
+            <div className={styles.FormGroup}>
+              <label className={styles.Label} htmlFor="username">Username</label>
+              <input
+                className={styles.Input}
+                type="text"
+                id="username"
+                name="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                autoComplete="username webauthn"
+              />
+            </div>
+            <div className={styles.FormGroup}>
+              <label className={styles.Label} htmlFor="password">Password</label>
+              <input
+                className={styles.Input}
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password webauthn"
+              />
+            </div>
+            {error && <div className={styles.ErrorMessage}>{error}</div>}
+            <button
+              className={(username.length > 0 && password.length > 0) ? styles.SubmitBtn : styles.InactiveSubmitBtn}
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </form>
+          <div className={styles.AuthTypeRedirectContainer}>
+            <div className={styles.AuthTypeRedirect} onClick={handleAuthToggle}>
+              New User? Register here
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
