@@ -18,18 +18,18 @@ function Login({ toggleToRegister }) {
     setError("");
     setLoading(true);
 
-    const formBody = new URLSearchParams({
+    const requestBody = {
       username: username,
       password: password
-    }).toString();
+    };
 
     try {
       const response = await fetch("/auth/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
-        body: formBody
+        body: JSON.stringify(requestBody)
       });
 
       let data;
@@ -42,7 +42,8 @@ function Login({ toggleToRegister }) {
       setLoading(false);
 
       if (!response.ok) {
-        throw new Error(data?.error || "Login failed");
+        console.log("Data", data);
+        throw new Error(`Invalid ${data.detail[0].loc[1]}` || "Login failed");
       }
 
       localStorage.setItem("access_token", data.access_token);
