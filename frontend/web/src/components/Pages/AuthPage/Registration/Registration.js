@@ -140,7 +140,7 @@ function Registration({ toggleToLogin }) {
               <label className={styles.Label} htmlFor="country">Country</label>
               <input className={styles.Input} type="text" id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)} />
             </div>
-            <button className={((username.length > 0) && (password.length > 0)) ? styles.SubmitBtn : styles.InactiveSubmitBtn} type="submit" disabled={loading}>{loading ? "Submitting.." : "Register"}</button>
+            <button className={((username.length > 0) && (password.length > 0) && (!loading)) ? styles.SubmitBtn : styles.InactiveSubmitBtn} type="submit">{loading ? "Submitting.." : "Register"}</button>
             <div className={styles.FormError} style={{ display: error ? "block" : "none" }}>{error}</div>
           </form>
           <div className={styles.AuthTypeRedirectContainer}>
