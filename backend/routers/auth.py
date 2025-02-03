@@ -36,8 +36,9 @@ class RegistrationRequest(BaseModel):
     phn_nbr: str = Field(..., min_length=10, max_length=15, pattern=PHONE_PATTERN)
     address: str = Field("", min_length=5, max_length=255)
     city: str = Field("", min_length=3, max_length=255)
-    state: str = Field("", min_length=3, max_length=64)
+    state: str = Field("", min_length=2, max_length=64)
     country: str = Field(..., min_length=3, max_length=64)
+    zip_code: str = Field("", min_length=5, max_length=10)
 
     @validator("cnfm_pswd")
     def passwords_match(cls, cnfm_pswd, values):
@@ -82,7 +83,7 @@ def user_login(username: str = Form(...), password: str = Form(...)):
 
 
 @auth.post("/register", response_model=RegisterResponse)
-def user_register(form_data: RegistrationRequest = Depends()):
+def user_register(form_data: RegistrationRequest):
     return {
         "username": form_data.username,
         "access_token": "at123456",
