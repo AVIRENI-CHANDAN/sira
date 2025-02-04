@@ -9,6 +9,7 @@ from backend.routers.schemas import (
     RegisterSuccessResponse,
     RegistrationRequest,
     AuthErrorResponse,
+    TokenRefreshSuccessResponse,
 )
 
 auth = APIRouter(prefix="/auth", tags=["authentication"])
